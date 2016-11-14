@@ -2,9 +2,22 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>체인점 관리 시스템</title>
+<link rel = "stylesheet" href="index.css">
 </head>
 <body>
-
+<center><h1>체인점 관리 시스템</h1></center>
+<section class="loginform cf">
+<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+  <ul>
+    <li><label for="id">ID</label>
+    <input type="text" name="usermail" placeholder="id" required></li>
+    <li><label for="password">Password</label>
+    <input type="password" name="password" placeholder="password" required></li>
+    <li>
+    <input type="submit" value="Login"></li>
+  </ul>
+</form>
+</section>
 </body>
 </html>
