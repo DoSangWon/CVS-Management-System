@@ -4,20 +4,26 @@
 <meta charset="EUC-KR">
 <title>체인점 관리 시스템</title>
 <link rel = "stylesheet" href="index.css">
+<link rel = "stylesheet" href="common.css">
+<style>
+.loginbox{
+background-image:url('images/main/loginbackground.jpg');
+}
+</style>
 </head>
-<body>
-<center><h1>체인점 관리 시스템</h1></center>
-<section class="loginform cf">
-<form name="login" action="index_submit" method="get" accept-charset="utf-8">
-  <ul>
-    <li><label for="id">ID</label>
-    <input type="text" name="usermail" placeholder="id" required></li>
-    <li><label for="password">Password</label>
-    <input type="password" name="password" placeholder="password" required></li>
-    <li>
-    <input type="submit" value="Login"></li>
-  </ul>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="wrapper">
+	
+<!-- 로그인 박스 시작  -->
+<form name="frm_login" method="post">
+<div class="loginbox">
+<ul class="inputbox2">
+			<li class="id_in_b"><input tabindex="1" maxlength="20" name="txtID"></li>
+			<li class="pw_in_b"><input type="password" maxlength="20" name="txtPwd" tabindex="2" onkeypress="javascript:if(event.keyCode == 13) Login_owner(document.all.Chk_A_Part.value); else return;"></li>
+			<li class="btn_b"><img src="images/main/btn_login.gif" tabindex="3" name="btnLogin" onclick="javascript:Login_owner(document.all.Chk_A_Part.value);" style="cursor:pointer;"></li>
+		</ul>
+</div>
 </form>
-</section>
+</div>
 </body>
 </html>
