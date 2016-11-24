@@ -15,13 +15,16 @@ background-image:url('images/main/loginbackground.jpg');
 <div id="wrapper">
 	
 <!-- 로그인 박스 시작  -->
-<form name="frm_login" method="post">
+<form name="frm_login" action="login_test.jsp"method="post">
 <div class="loginbox">
 <ul class="inputbox2">
 			<li class="id_in_b"><input tabindex="1" maxlength="20" name="txtID"></li>
 			<li class="pw_in_b"><input type="password" maxlength="20" name="txtPwd" tabindex="2" onkeypress="javascript:if(event.keyCode == 13) Login_owner(document.all.Chk_A_Part.value); else return;"></li>
-			<li class="btn_b"><img src="images/main/btn_login.gif" tabindex="3" name="btnLogin" onclick="javascript:Login_owner(document.all.Chk_A_Part.value);" style="cursor:pointer;"></li>
+			<li class="btn_b"><input type="image" name="submit" src="images/main/btn_login.gif" value="" style="width:80px; height:50px"/></li>
+			<li>점주계정 생성</li>
+			
 		</ul>
+		
 </div>
 </form>
 </div>
