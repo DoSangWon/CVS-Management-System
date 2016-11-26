@@ -3,30 +3,48 @@
 <head>
 <meta charset="EUC-KR">
 <title>체인점 관리 시스템</title>
-<link rel = "stylesheet" href="index.css">
-<link rel = "stylesheet" href="common.css">
 <style>
-.loginbox{
-background-image:url('images/main/loginbackground.jpg');
-}
+ .wrapper{
+ 	position:absolute;top:0;left:0;width:100%;height:100%;text-align:center
+ }
+ .wrapper .content{display:inline-block;vertical-align:middle}
+.wrapper .blank{display:inline-block;width:0;height:100%;vertical-align:middle}
+h1{text-align: center;}
+ .loginForm{position:relative;width:435px; margin: auto;}
+ .loginForm .box{width:326px}
+ .loginForm .box .iText{width:300px;margin:3px 0;padding:10px 12px;border:1px solid #e1e1e1}
+ .loginForm .box p{margin-top:1em}
+ .loginForm .box p span,
+ .loginForm .box p input{height:18px;font-size:11px;color:#737373;line-height:18px;vertical-align:middle}
+ 
+ .loginForm .loginBtn{display:block;position:absolute;top:0;right:0;width:100px;height:80px;padding:10px;border-radius:5px;
+ font-size:14px;font-weight:700;color:#fff;line-height:60px;text-align:center;text-shadow:1px 1px 1px #004773;background:#333}
 </style>
 </head>
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<div id="wrapper">
-	
-<!-- 로그인 박스 시작  -->
-<form name="frm_login" action="login_test.jsp"method="post">
-<div class="loginbox">
-<ul class="inputbox2">
-			<li class="id_in_b"><input tabindex="1" maxlength="20" name="txtID"></li>
-			<li class="pw_in_b"><input type="password" maxlength="20" name="txtPwd" tabindex="2" onkeypress="javascript:if(event.keyCode == 13) Login_owner(document.all.Chk_A_Part.value); else return;"></li>
-			<li class="btn_b"><input type="image" name="submit" src="images/main/btn_login.gif" value="" style="width:80px; height:50px"/></li>
-			<li>점주계정 생성</li>
-			
-		</ul>
-		
+<body>
+<div class="wrapper">
+<span class="content">
+<div class="logo">
+<h1>Chain Management System</h1><p>
+<h3>(체인점 관리 시스템)</h3>
 </div>
-</form>
+ <div class="loginForm">
+        <form method="post" name="Login_form" action="loginProc.jsp">
+           <div class="box">
+            <input type="text" name="txtID"class="iText">
+            <br>
+            <input type="password" name="password"class="iText">
+            <br>
+            <p>
+              <span class="fleft"><input type="checkbox" id=""><label for=""> 아이디 저장</label></span> 
+              <span class="fright"><a href="">아이디 찾기</a>&nbsp;|&nbsp;<a href="">비밀번호 찾기</a>&nbsp;|&nbsp;<a href="">점주 가입</a></span>
+            </p>
+          </div>
+          <input type="submit" value="로그인" class="loginBtn"></a>
+        </form>
+      </div>
+      </span>
+       <span class="blank"></span>
 </div>
 </body>
 </html>

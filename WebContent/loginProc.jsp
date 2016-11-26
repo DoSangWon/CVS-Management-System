@@ -7,9 +7,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%request.setCharacterEncoding("utf8");
+<jsp:useBean id="mMgr" class="CVS.MemberMgr"/>
+<%request.setCharacterEncoding("euc-kr");
 	String id = request.getParameter("txtID");
+	String pw = request.getParameter("password");
+	boolean flag = mMgr.loginMember(id, pw);
+	if(flag==false){
+	%>
+	<script>
+	alert("로그인에 실패 하였습니다.");	
+</script>
+<%}else{
+	%>
+	<%=id %> 님 안녕하세요?
+	<%
+}
 %>
-<%=id%>님 로그인
+
 </body>
 </html>
