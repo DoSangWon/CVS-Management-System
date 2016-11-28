@@ -8,49 +8,22 @@
 
 <html>
 <head>
-<title>JSP에서 데이터베이스 연동</title>
+<title>체인점 관리 시스템</title>
+<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>체인점 관리 시스템</title>
+	<!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+     <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+     <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+        <!-- CUSTOM STYLES-->
+    <link href="assets/css/custom.css" rel="stylesheet" />
+     <!-- GOOGLE FONTS-->
+   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <style >
-
-#상단영역{
-
-	background-color: pink;
-
-	height:100px;
-
-}
-
-#좌측영역{
-
-	background-color: LightGray;
-
-	height:550px;
-
-	width:300px;
-
-	float:left;
-
-}
-
-#내용영역{
-
-	background-color: yellow;
-
-	height:550px;
-
-	
-
-}
-
-#하단영역{
-
-	background-color: orange;
-
-	height:50px;
-
-	
-
-}
 
 </style>
 
@@ -62,7 +35,7 @@
 
 </div>
 
-<div id="좌측영역" style="overflow:auto;" >
+<div id="좌측영역" style="overflow:auto;"style="height:100%;" >
 
 	<jsp:include page="Left.jsp" flush="false">
 
@@ -83,6 +56,15 @@
 	<jsp:include page="Bottom.jsp" flush="false"/>
 
 </div>
-
+ <script src="assets/js/jquery-1.10.2.js"></script>
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+     <!-- MORRIS CHART SCRIPTS -->
+     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+      <!-- CUSTOM SCRIPTS -->
+    <script src="assets/js/custom.js"></script>
 </body>
 </html>

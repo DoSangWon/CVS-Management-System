@@ -59,7 +59,7 @@ public class BranchMgr {
 		try {
 			
 			con = pool.getConnection();
-			sql= "SELECT * FROM branchinfo;";
+			sql= "SELECT * FROM BranchInfo;";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -124,7 +124,7 @@ System.out.println(id);
 			**********************************************************************/
 			con = pool.getConnection();
 			System.out.println(bean.getBid());
-			String sql = "update branchinfo set branch_Loc =?,branch_Owner_Name =?,branch_tel =?,branch_Owner_tel =? where branch_Id=?";
+			String sql = "update BranchInfo set branch_Loc =?,branch_Owner_Name =?,branch_tel =?,branch_Owner_tel =? where branch_Id=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getbLoc());
 			pstmt.setString(2, bean.getbName());
