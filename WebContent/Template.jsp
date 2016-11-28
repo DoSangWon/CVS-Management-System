@@ -56,13 +56,13 @@
 
 
 <body>
-<div id="상단영역" >
+<div id="상단영역" style="overflow:auto;" >
 
 	<jsp:include page="Top.jsp" flush="false"/>
 
 </div>
 
-<div id="좌측영역" >
+<div id="좌측영역" style="overflow:auto;" >
 
 	<jsp:include page="Left.jsp" flush="false">
 
@@ -72,13 +72,13 @@
 
 </div>
 
-<div id="내용영역" >
+<div id="내용영역" style="overflow:auto;" >
 
 	<jsp:include page="<%= contentPage %>" flush="false" />
 
 </div>
 
-<div id="하단영역" >
+<div id="하단영역" style="overflow:auto;" >
 
 	<jsp:include page="Bottom.jsp" flush="false"/>
 
