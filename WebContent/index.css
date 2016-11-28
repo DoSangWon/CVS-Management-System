@@ -1,0 +1,18 @@
+@charset "euc-kr";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+/* CSS Document */
+
+
+#wrapper{font-family:'Malgun Gothic','¸¼Àº °íµñ',dotum,'µ¸¿ò',sans-serif; overflow:hidden; width:1000px; position:relative !important; margin:0 auto;}
+
+#wrapper .header{ position:relative;width:1000px; height:130px; }
+#wrapper .header h1{position: absolute; top:47px;left:0px;}
+
+/*  ·Î±×ÀÎ  */	
+
+.loginbox{width:780px; height:362px;  position:relative; margin:140px auto 0px auto;}
+
+.inputbox2{position: absolute; top:255px; left:420px; }
+.inputbox2 li{ margin-bottom:3px;}
+.inputbox2 li input{border:2px solid #e2e2e2; padding:2px; width:135px;}
+.inputbox2 .btn_b{position: absolute; top:0px;left:155px;}
