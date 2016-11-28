@@ -35,7 +35,7 @@
 
 </div>
 
-<div id="ÁÂÃø¿µ¿ª" style="overflow:auto;"style="height:100%;" >
+<div id="ÁÂÃø¿µ¿ª" style="overflow:auto;">
 
 	<jsp:include page="Left.jsp" flush="false">
 
