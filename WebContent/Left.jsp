@@ -28,18 +28,17 @@ body {
                                 <a href="#">결산<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">결산 통계</a>
+                                        <a href="Totalization_Insert_Forword.jsp">결산 등록</a>
                                     </li>
                                     <li>
-                                        <a href="#">결산 내역</a>
+                                        <a href="Totalization_Select_Forword.jsp">결산 조회</a>
                                     </li>
                                     <li>
-                                        <a href="#">결산 입력</a>
+                                        <a href="Totalization_Update_Forword.jsp">결산 변경</a>
                                     </li>
                                     <li>
-                                        <a href="#">?????</a>
+                                        <a href="Totalization_Delete_Forword.jsp">결산 삭제</a>
                                     </li>
-
                                 </ul>
                                
                             </li>
@@ -47,16 +46,16 @@ body {
                                 <a href="#">발주<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">발주 통계</a>
+                                        <a href="Order_Insert_Forword.jsp">물품 발주</a>
                                     </li>
                                     <li>
-                                        <a href="#">물품 발주</a>
+                                        <a href="Order_Select_Forword.jsp">발주 내역</a>
                                     </li>
                                     <li>
-                                        <a href="#">발주 내역</a>
+                                        <a href="#">발주 내역 변경</a>
                                     </li>
                                     <li>
-                                        <a href="#">?????</a>
+                                        <a href="#">발주 취소</a>
                                     </li>
 
                                 </ul>
@@ -69,6 +68,33 @@ body {
                    	  <li>
                         <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i>점원 관리</a>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>지점관리<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                          
+							<li>
+                                <a href="#">지점<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="Branch_Insert_Forword.jsp">지점 등록</a>
+                                    </li>
+                                    <li>
+                                        <a href="Branch_Select_Forword.jsp">지점 조회</a>
+                                    </li>
+                                    <li>
+                                        <a href="Branch_Update_Forword.jsp">지점 변경</a>
+                                    </li>
+                                    <li>
+                                        <a href="Branch_Delete_Forword.jsp">지점 삭제</a>
+                                    </li>
+
+                                </ul>
+                               
+                            </li>
+
+                        </ul>
+                        
+                      </li>
                 </ul>
                
             </div>
