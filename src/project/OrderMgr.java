@@ -116,7 +116,7 @@ public class OrderMgr {
 	}
 	
 	
-	public boolean insertOrder(int onum,int pnum, String pname, String opamount) {
+	public boolean insertOrder(int onum,int pnum, String pname, String opamount, String obranch) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = null;
@@ -126,13 +126,15 @@ public class OrderMgr {
 
 			con = pool.getConnection();
 			
-			sql = "insert Order_Spec(Order_num,Product_num,Product_name,Product_amount,Order_date) values(?,?,?,?,curdate())";
+			sql = "insert Order_Spec(Order_num,Product_num,Product_name,Product_amount,Order_date,branch_Id,state) values(?,?,?,?,curdate(),?,?)";
 			pstmt = con.prepareStatement(sql);
 			//System.out.println(bean.getBid());
 			pstmt.setInt(1,onum);
 			pstmt.setInt(2,pnum);
 			pstmt.setString(3,pname);
 			pstmt.setString(4,opamount);
+			pstmt.setString(5,obranch);
+			pstmt.setString(6, "no");
 
 			
 			if(pstmt.executeUpdate()==1){
@@ -148,4 +150,43 @@ public class OrderMgr {
 		}
 		return flag;
 	}
+	
+	
+	public Vector<OrderBean> getOrder(int onum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		Vector<OrderBean> vlist = new Vector<OrderBean>();
+		try {
+			
+			con = pool.getConnection();
+			sql= "SELECT * FROM Order_Spec where Order_num=?";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,onum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				OrderBean bean = new OrderBean();
+				bean.setOnum(rs.getString(1));
+				bean.setOpnum(rs.getString(2));
+				bean.setOpname(rs.getString(3));
+				bean.setOpamount(rs.getString(4));
+				bean.setOdate(rs.getString(5));
+				bean.setObranch(rs.getString(6));
+				bean.setState(rs.getString(7));
+				System.out.println(rs.getString(3));
+				vlist.add(bean);
+			}
+	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return vlist;
+	}
+	
+	
 }

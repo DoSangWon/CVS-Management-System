@@ -4,9 +4,10 @@ public class OrderBean {
 	public String Onum;
 	public String Opnum;
 	public String Opname;
-	public String Opamount[];
+	public String Opamount;
 	public String Odate;
-	
+	public String Obranch;
+	public String state;
 	
 	public String getOnum() {
 		return Onum;
@@ -26,10 +27,10 @@ public class OrderBean {
 	public void setOpname(String opname) {
 		Opname = opname;
 	}
-	public String[] getOpamount() {
+	public String getOpamount() {
 		return Opamount;
 	}
-	public void setOpamount(String[] opamount) {
+	public void setOpamount(String opamount) {
 		Opamount = opamount;
 	}
 	public String getOdate() {
@@ -38,6 +39,21 @@ public class OrderBean {
 	public void setOdate(String odate) {
 		Odate = odate;
 	}
+	public String getObranch() {
+		return Obranch;
+	}
+	public void setObranch(String obranch) {
+		Obranch = obranch;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	
+	
 	
 	
 }
