@@ -19,6 +19,7 @@
 <body>
 <%
 request.setCharacterEncoding("EUC-KR");
+String bid = request.getParameter("branch");
 int onum = mMgr.getOnum()+1;
 for(int i = 1; i<=count; i++){
     String str = "test"+i;
@@ -27,7 +28,7 @@ for(int i = 1; i<=count; i++){
     	String opanme = request.getParameter(str);
     	String opamount = request.getParameter(str2);
     	int j = mMgr.getOpnum(opanme);
-    	boolean result = mMgr.insertOrder(onum,j,opanme,opamount);
+    	boolean result = mMgr.insertOrder(onum,j,opanme,opamount,bid);
     	if(result){
     		
     	}else{

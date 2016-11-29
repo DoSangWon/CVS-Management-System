@@ -63,11 +63,12 @@ public DBConnectionMgr pool;
 			
 			while(rs.next()){
 				TotalizationBean bean = new TotalizationBean();
-				bean.setTbid(rs.getString(1));
-				bean.setTrevenue(rs.getString(2));
-				bean.setTexpenditure(rs.getString(3));
-				bean.setTdate(rs.getString(4));
-				bean.setTnum(rs.getString(5));
+				bean.setTnum(rs.getString(1));
+				bean.setTbid(rs.getString(2));
+				bean.setTrevenue(rs.getString(3));
+				bean.setTexpenditure(rs.getString(4));
+				bean.setTdate(rs.getString(5));
+				
 
 				vlist.add(bean);
 			}
@@ -90,7 +91,7 @@ System.out.println(_Tnum);
 		try {
 			/* 120 ~ 126 line : 로그인하는 부분 코딩 */
 			con = pool.getConnection();
-			sql = "delete from Totalization where totalization_Number =?";
+			sql = "delete from Totalization where totalization_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, _Tnum);
 			pstmt.executeUpdate();
@@ -123,7 +124,7 @@ System.out.println(_Tnum);
 			**********************************************************************/
 			con = pool.getConnection();
 			System.out.println(bean.getTnum());
-			String sql = "update Totalization set revenue =?,expenditure =?,totalizaion_Date = curdate() where totalization_Number=?";
+			String sql = "update Totalization set revenue =?,expenditure =?,totalizaion_Date = curdate() where totalization_num=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, bean.getTrevenue());
 			pstmt.setString(2, bean.getTexpenditure());

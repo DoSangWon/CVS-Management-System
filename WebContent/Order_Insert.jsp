@@ -68,9 +68,11 @@ function submitbutton() {
 <center>
    <h1>물품 발주</h1>
    <input type="button" value="행 추가" onclick="javascript:addInputBox();"> : <input type="button" value="행 삭제" onclick="javascript:subtractInputBox();"><br><br>
-<input type="button" value="전송" onclick="javascript:submitbutton();">
+
 <form name="gForm" action="./Order_Insert_Query_Forward.jsp" method="post">
   <input type="hidden" name="count">
+  지점 Id : <input type="text" name="branch">
+  <input type="button" value="전송" onclick="javascript:submitbutton();">
 <table  cellpadding=0 cellspacing=0 id="" border="1">
 <tr>
  <td width="20">no</td>
