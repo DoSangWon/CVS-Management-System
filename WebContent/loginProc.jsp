@@ -10,29 +10,15 @@
 	  boolean flag=false;
 	  flag = mMgr.loginMember(id,pass);
 	  if(flag){
-		  msg = "로그인에 성공 하였습니다.";
+		  session.setAttribute("id", id);                 // 세션에 "id" 이름으로 id 등록
+		  response.sendRedirect("Main.jsp");               // 로그인 성공 메인페이지 이동
+	  }else{ 
 %>
 <script type="text/javascript">
-	  location.href="Main.jsp";
-</script>
-<%
-	  }else{
-		  msg = "로그인에 실패 하였습니다.";  
-%>
-<script type="text/javascript">
-	  location.href="index.html";
-</script>
+	alert("로그인 실패");
+	history.go(-1);                                   
+</script>	
 <%
 	  }
-		 
-
-
-
 
 %>
-<script>
-	alert("<%=msg%>");	
-	location.href="<%=url%>";
-	alert("<%=id%>");	
-	
-</script>

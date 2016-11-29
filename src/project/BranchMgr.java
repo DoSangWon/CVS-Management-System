@@ -25,14 +25,14 @@ public class BranchMgr {
 
 			con = pool.getConnection();
 			
-			sql = "insert BranchInfo(branch_Id ,branch_Loc ,branch_Owner_Name ,branch_tel ,branch_Owner_tel) values(?,?,?,?,?)";
+			sql = "insert BranchInfo(branch_Id ,branch_Name,branch_Loc,branch_Owner_Name,branch_tel) values(?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			//System.out.println(bean.getBid());
 			pstmt.setString(1,bean.getBid());
-			pstmt.setString(2,bean.getbLoc());
-			pstmt.setString(3,bean.getbName());
-			pstmt.setString(4,bean.getbTel());
-			pstmt.setString(5,bean.getbOTel());
+			pstmt.setString(2,bean.getbName());
+			pstmt.setString(3,bean.getbLoc());
+			pstmt.setString(4,bean.getbOName());
+			pstmt.setString(5,bean.getbTel());
 
 			
 			if(pstmt.executeUpdate()==1){
@@ -50,7 +50,7 @@ public class BranchMgr {
 	}
 	
 	
-	public Vector<BranchBean> getBranch() {
+	public Vector<BranchBean> getBranch(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -59,17 +59,19 @@ public class BranchMgr {
 		try {
 			
 			con = pool.getConnection();
-			sql= "SELECT * FROM BranchInfo;";
+			sql= "select a.branch_Id,a.branch_Name,a.branch_Loc,b.branch_Owner_Name,a.branch_tel,b.branch_Owner_tel from branchInfo a INNER JOIN branch_user b ON a.branch_Owner_Name = b.Branch_Owner_Id where a.branch_Owner_Name = ?;";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
 				BranchBean bean = new BranchBean();
 				bean.setBid(rs.getString(1));
-				bean.setbLoc(rs.getString(2));
-				bean.setbName(rs.getString(3));
-				bean.setbTel(rs.getString(4));
-				bean.setbOTel(rs.getString(5));
+				bean.setbName(rs.getString(2));
+				bean.setbLoc(rs.getString(3));
+				bean.setbOName(rs.getString(4));
+				bean.setbTel(rs.getString(5));
+				bean.setbOTel(rs.getString(6));
 				vlist.add(bean);
 			}
 	

@@ -13,16 +13,24 @@
 <title>Insert title here</title>
 </head>
 <body>
-<center><h1>지점 조회</h1>
+<div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+
+ <div class="panel panel-default">
+                        <div class="panel-heading">
+                            지점 명단
+                        </div>
 
 <%
+System.out.println((String)session.getAttribute("id"));
+Vector<BranchBean> vlist = mMgr.getBranch((String)session.getAttribute("id"));
 
-Vector<BranchBean> vlist = mMgr.getBranch();
 
-
-	out.println("<center><table width =800 height = 300 border=2>" + "<tr>" + "<td align=center> 지점 ID </td>" + "<td align=center> 지점 위치 </td>" + "<td align=center> 점장명 </td>" + "<td align=center> 지점 연락처 </td>" + "<td align=center> 점장 연락처 </td>" + "</tr>");
+	out.println("<center><table class='table table-striped table-bordered table-hover' border=2><thead>" + "<tr>" +"<td align=center>선택</td>"+ "<td align=center> 지점 ID </td>" +"<td align=center>지점명</td>"+"<td align=center> 지점 위치 </td>" + "<td align=center> 점장명 </td>" + "<td align=center> 지점 연락처 </td>" + "<td align=center> 점장 연락처 </td>" + "</tr></thead>");
 			
-	
+	out.println("<tbody>");
 	for (int i = 0; i < vlist.size(); i++) {
 				bean = vlist.get(i);
 				String branch_Id = bean.getBid();
@@ -30,21 +38,32 @@ Vector<BranchBean> vlist = mMgr.getBranch();
 				String branch_Owner_Name = bean.getbName();
 				String branch_tel = bean.getbTel();
 				String branch_Owner_tel = bean.getbOTel();
-
+				out.println("<td align=center><input type=checkbox></td>");
 				out.println("<td align=center>"+bean.getBid() + "</td>");
 				//out.println("<tr><a href='Branch_Delete_Query_Forward.jsp?branch_Id="+bean.getBid()+"&branch_Loc="+bean.getbLoc()+"&branch_Owner_Name="+bean.getbName()+"&branch_tel="+bean.getbTel()+"&branch_Owner_tel="+bean.getbOTel()+"'>");
 				//out.println("<a href='Branch_Delete.jsp?branch_Id="+branch_Id+"&branch_Loc="+branch_Loc+"&branch_Owner_Name="+branch_Owner_Name+"&branch_tel="+branch_tel+"&branch_Owner_tel="+branch_Owner_tel+"'</a>"+branch_Id+"</td>");
 				//out.println("<td align=center><a href='Branch_Delete_List_Forward.jsp?branch_Id="+bean.getBid()+"&branch_Loc="+bean.getbLoc()+"&branch_Owner_Name="+bean.getbName()+"&branch_tel="+bean.getbTel()+"&branch_Owner_tel="+bean.getbOTel()+"'>"+bean.getBid() + "</a></td>");
-				out.println("<td align=center>"+bean.getbLoc() + "</td>");
 				out.println("<td align=center>"+bean.getbName() + "</td>");
+				out.println("<td align=center>"+bean.getbLoc() + "</td>");
+				out.println("<td align=center>"+bean.getbOName() + "</td>");
 				out.println("<td align=center>"+bean.getbTel() + "</td>");
 				out.println("<td align=center>"+bean.getbOTel() + "</td>");
 				out.println("</tr></a>");
 			}
 
-			out.println("</table></center>");
+			out.println("</tbody></table></center>");
 
 %>
+
 </center>
+ </div>
+ <a href="#" class="btn btn-primary">변경</a>
+ <a href="#" class="btn btn-danger">삭제</a>
+ </div>              
+</div>
+                                     <!-- /. ROW  -->           
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
 </body>
 </html>

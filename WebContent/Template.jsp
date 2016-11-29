@@ -3,7 +3,20 @@
 <%request.setCharacterEncoding("EUC-KR");%>
 <%
    String contentPage = request.getParameter("CONTENTPAGE");
+	
+String id ="";
+id = (String)session.getAttribute("id");            // request에서 id 파라미터를 가져온다
+
+if(id==null||id.equals("")){                            // id가 Null 이거나 없을 경우
+	%>
+	<script>
+	alert("잘못된 접근입니다.");
+</script>
+	<%
+response.sendRedirect("index.html");    // 로그인 페이지로 리다이렉트 한다.
+}
 %>
+
 
 
 <html>

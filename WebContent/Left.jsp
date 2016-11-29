@@ -9,6 +9,7 @@ body {
     width: 100%;
     background:#202020;
 }
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
                 <nav class="navbar-default navbar-side" role="navigation">
@@ -19,7 +20,7 @@ body {
                     	
 					</li>
 					 <li  >
-                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i> 공지사항 </a>
+                        <a  href="#"><i class="fa fa-edit fa-3x"></i> 공지사항 </a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i>발주 & 결산<span class="fa arrow"></span></a>
@@ -66,7 +67,7 @@ body {
                         
                       </li>  
                    	  <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i>점원 관리</a>
+                        <a  href="#"><i class="fa fa-desktop fa-3x"></i>점원 관리</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i>지점관리<span class="fa arrow"></span></a>

@@ -6,6 +6,8 @@ public class BranchBean {
 	public String bName ;
 	public String bTel ;
 	public String bOTel ;
+	public String bOName;
+	
 	
 	public String getBid() {
 		return bid;
@@ -36,5 +38,11 @@ public class BranchBean {
 	}
 	public void setbOTel(String bOTel) {
 		this.bOTel = bOTel;
+	}
+	public String getbOName() {
+		return bOName;
+	}
+	public void setbOName(String bOName) {
+		this.bOName = bOName;
 	}
 }
