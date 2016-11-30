@@ -21,7 +21,7 @@ function form_submit(){
 
 }
 function form_submit2(){
-	document.test.action="test3.jsp";
+	document.test.action="Branch_Delete_Query_Forward.jsp";
 	document.test.submit();
 
 }
