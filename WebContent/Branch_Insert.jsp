@@ -35,7 +35,7 @@
      <label>지점 연락처</label>
      <input class="form-control" name = "bTel"/>
    </div> 
-    
+   <input type="hidden" name=bOTel value="test"/> 
       <button type="submit" class="btn btn-default">등록하기</button>
    </Form>
    </center>

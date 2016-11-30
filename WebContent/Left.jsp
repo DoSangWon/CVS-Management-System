@@ -82,12 +82,6 @@ body {
                                     <li>
                                         <a href="Branch_Select_Forword.jsp">지점 조회</a>
                                     </li>
-                                    <li>
-                                        <a href="Branch_Update_Forword.jsp">지점 변경</a>
-                                    </li>
-                                    <li>
-                                        <a href="Branch_Delete_Forword.jsp">지점 삭제</a>
-                                    </li>
 
                                 </ul>
                                

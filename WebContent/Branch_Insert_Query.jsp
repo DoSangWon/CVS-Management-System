@@ -19,6 +19,7 @@ System.out.println(bean.getbLoc());
 System.out.println(bean.getbName());
 System.out.println(bean.getbTel());
 System.out.println(bean.getbOName());
+System.out.println(bean.getbOTel());
 	boolean result = mMgr.insertBranch(bean);
 	if(result){
 		

@@ -25,7 +25,7 @@ public class BranchMgr {
 
 			con = pool.getConnection();
 			
-			sql = "insert BranchInfo(branch_Id ,branch_Name,branch_Loc,branch_Owner_Name,branch_tel) values(?,?,?,?,?)";
+			sql = "insert BranchInfo(branch_Id ,branch_Name,branch_Loc,branch_Owner_Name,branch_tel,branch_Owner_tel) values(?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			//System.out.println(bean.getBid());
 			pstmt.setString(1,bean.getBid());
@@ -33,6 +33,7 @@ public class BranchMgr {
 			pstmt.setString(3,bean.getbLoc());
 			pstmt.setString(4,bean.getbOName());
 			pstmt.setString(5,bean.getbTel());
+			pstmt.setString(6,bean.getbOTel());
 
 			
 			if(pstmt.executeUpdate()==1){
@@ -108,7 +109,7 @@ System.out.println(id);
 	}
 	
 	
-	public boolean updateBranch(BranchBean bean) {
+	public boolean updateBranch(String bid,String bName,String bLoc,String bTel) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -125,14 +126,14 @@ System.out.println(id);
 			6. Prepared Statement을 수행 완료되면  boolean 타입으로 결과 반환									
 			**********************************************************************/
 			con = pool.getConnection();
-			System.out.println(bean.getBid());
-			String sql = "update BranchInfo set branch_Loc =?,branch_Owner_Name =?,branch_tel =?,branch_Owner_tel =? where branch_Id=?";
+			//System.out.println(bean.getBid());
+			String sql = "update BranchInfo set branch_Name =?,branch_Loc =?,branch_tel =? where branch_Id=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bean.getbLoc());
-			pstmt.setString(2, bean.getbName());
-			pstmt.setString(3, bean.getbTel());
-			pstmt.setString(4, bean.getbOTel());
-			pstmt.setString(5, bean.getBid());
+			pstmt.setString(1, bName);
+			pstmt.setString(2, bLoc);
+			pstmt.setString(3, bTel);
+			pstmt.setString(4, bid);
+
 			
 			int count = pstmt.executeUpdate();
 			if (count > 0)
