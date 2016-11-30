@@ -67,7 +67,7 @@ body {
                         
                       </li>  
                    	  <li>
-                        <a  href="#"><i class="fa fa-desktop fa-3x"></i>痢盔 包府</a>
+                        <a  href="Employee_Forward.jsp"><i class="fa fa-desktop fa-3x"></i>痢盔 包府</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i>瘤痢包府<span class="fa arrow"></span></a>

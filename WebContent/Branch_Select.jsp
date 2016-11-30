@@ -57,7 +57,7 @@ Vector<BranchBean> vlist = mMgr.getBranch((String)session.getAttribute("id"));
 
 </center>
  </div>
- <a href="#" class="btn btn-primary">변경ddd</a>
+ <a href="#" class="btn btn-primary">변경</a>
  <a href="#" class="btn btn-danger">삭제</a>
  </div>              
 </div>
