@@ -16,7 +16,7 @@
 <center><h1>지점 삭제</h1></center>
 <%
 
-Vector<BranchBean> vlist = mMgr.getBranch();
+Vector<BranchBean> vlist = mMgr.getBranch((String)session.getAttribute("id"));
 
 
 	out.println("<center><table width =800 height = 300 border=2>" + "<tr>" + "<td align=center> 지점 ID </td>" + "<td align=center> 지점 위치 </td>" + "<td align=center> 점장명 </td>" + "<td align=center> 지점 연락처 </td>" + "<td align=center> 점장 연락처 </td>" + "</tr>");

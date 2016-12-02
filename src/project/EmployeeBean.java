@@ -1,18 +1,25 @@
 package project;
 
 public class EmployeeBean {
-	private String Eid;
+	public String Eid;
+	public String Ename;
+	public String Etel;
+	public String Edate;
+	public int Ehw;
+	public String bid;
+	
 	public String getEid() {
 		return Eid;
 	}
 	public void setEid(String eid) {
 		Eid = eid;
 	}
-	public String getEName() {
-		return EName;
+	
+	public String getEname() {
+		return Ename;
 	}
-	public void setEName(String eName) {
-		EName = eName;
+	public void setEname(String ename) {
+		Ename = ename;
 	}
 	public String getEtel() {
 		return Etel;
@@ -38,10 +45,5 @@ public class EmployeeBean {
 	public void setBid(String bid) {
 		this.bid = bid;
 	}
-	private String EName;
-	private String Etel;
-	private String Edate;
-	private int Ehw;
-	private String bid;
 	
 }

@@ -17,7 +17,7 @@
 
 <%
 
-Vector<TotalizationBean> vlist = mMgr.getTotalization();
+Vector<TotalizationBean> vlist = mMgr.getTotalization((String)session.getAttribute("id"));
 
 
 	out.println("<center><table width =800 height = 300 border=2>" + "<tr>" + "<td align=center> 번호 </td>" + "<td align=center> 지점 ID </td>" + "<td align=center> 수익 </td>" + "<td align=center> 지출 </td>" + "<td align=center> 결산일 </td>" + "<td align=center> 순이익 </td>" + "</tr>");

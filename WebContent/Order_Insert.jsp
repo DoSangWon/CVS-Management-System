@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%request.setCharacterEncoding("EUC-KR");%>
+<%@ page import = "java.sql.*" %>
+<%@ page import = "java.util.*" %>
+<%@ page import = "project.ProductBean" %>
+<jsp:useBean id="bean" class="project.ProductBean"/>
+<jsp:useBean id="mMgr" class="project.ProductMgr"/> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -21,14 +26,26 @@ function addInputBox() {
   }
   else addCount = count;
  }
- var addStr = "<tr><td width=40><input type=checkbox name=checkList value="+addCount+" size=40 ></td><td width=140><input type=text  value ="+addCount+" name=test"+addCount+" size=40></td><td width=140><input type=text  value ="+addCount+" name=value"+addCount+" size=40></td></tr>";
+ //alert(document.all.gForm.gu_1.value);
+ 
+ var addStr = "<td width=40><input type=checkbox name=checkList value="+addCount+" size=40 ></td>";
  var table = document.getElementById("dynamic_table");
  var newRow = table.insertRow();
  var newCell = newRow.insertCell();
  newCell.innerHTML = addStr;
+ 
+ 
+ 
+ var addStr = "<td width=140><input type=text  value ="+document.all.gForm.gu_1.value+" name=test"+addCount+" size=40></td>";
+ var newCell = newRow.insertCell();
+ newCell.innerHTML = addStr;
+
+ var addStr = "<td width=140><input type=text  value ="+addCount+" name=value"+addCount+" size=40></td>";
+ var newCell = newRow.insertCell();
+ newCell.innerHTML = addStr;
  count++;
 }
- 
+
 //행삭제
 function subtractInputBox() {
  var table = document.getElementById("dynamic_table");
@@ -39,7 +56,7 @@ function subtractInputBox() {
  if(rows > 1){
   for (var i=0; i<document.gForm.checkList.length; i++) {
    if (document.gForm.checkList[i].checked == true) {
-    table.deleteRow(i);
+    table.deleteRow(i+1);
     i--;
     count--;
     chk++;
@@ -64,27 +81,60 @@ function submitbutton() {
 </script>
 
 
-<body -nLoad="addInputBox()">
-<center>
-   <h1>물품 발주</h1>
-   <input type="button" value="행 추가" onclick="javascript:addInputBox();"> : <input type="button" value="행 삭제" onclick="javascript:subtractInputBox();"><br><br>
+<BODY -nLoad="addInputBox()">
+<input type="button" value="행 추가" onclick="javascript:addInputBox();"> : <input type="button" value="행 삭제" onclick="javascript:subtractInputBox();"><br><br>
+<input type="button" value="전송" onclick="javascript:submitbutton();">
+<form name="gForm" action="Order_Insert_Query_Forward.jsp" method="post">
 
-<form name="gForm" action="./Order_Insert_Query_Forward.jsp" method="post">
+
+<body -nLoad="addInputBox()">
+<div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+
+   <h2>발주</h2>
+   <h5>발주 정보를 정확하게 입력하여 주십시오.</h5>
+   <hr />
+   <center>
+<input type="button" value="행 추가" onclick="javascript:addInputBox();"> : <input type="button" value="행 삭제" onclick="javascript:subtractInputBox();"><br><br>
+
+<form name="gForm" action="./test2.jsp" method="post">
+
+
+<% 
+Vector<ProductBean> vlist = mMgr.getProduct();
+out.println("<select name = gu_1>");
+for (int i = 0; i < 4; i++) {
+	bean = vlist.get(i);
+	String pname = bean.getPname();
+	out.println("<option value="+pname+">"+pname+"");
+	
+}
+out.println("</select>");
+%>
+  
   <input type="hidden" name="count">
-  지점 Id : <input type="text" name="branch">
-  <input type="button" value="전송" onclick="javascript:submitbutton();">
-<table  cellpadding=0 cellspacing=0 id="" border="1">
-<tr>
- <td width="20">no</td>
- <td width="340">제품명</td>
- <td width="340">수량</td>
-</tr>
-<tr>
-<table cellpadding=0 cellspacing=0 id="dynamic_table" border="1">
+
+<table id="dynamic_table" class='table table-striped table-bordered table-hover' border=2>
+<thead><tr><td align=center>선택</td><td align=center>상품명</td><td align=center>개수</td></tr></thead>
 </table>
-</tr>
-</table>
+
 </form>
-   </center>
+</center>
+
+   <Form Action="Branch_Insert_Query_Forward.jsp" method="post">
+
+      <input type="button" class="btn btn-default" value="발주하기" onclick="javascript:submitbutton();">
+   </Form>
+   
+   </div>
+                </div>              
+                 
+                    </div>
+                                     <!-- /. ROW  -->           
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
 </body>
 </html>

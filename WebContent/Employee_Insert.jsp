@@ -13,22 +13,30 @@
                 <div class="row">
                     <div class="col-md-12">
 
-   <h2>결산 등록</h2>
-   <h5>결산 정보를 정확하게 입력하여 주십시오.</h5>
+   <h2>점원 등록</h2>
+   <h5>점원 정보를 정확하게 입력하여 주십시오.</h5>
    <hr />
    <center>
-   <Form Action="Totalization_Insert_Query_Forward.jsp" method="post">
+   <Form Action="Employee_Insert_Query_Forward.jsp" method="post">
    <div class="form-group">
-     <label>지점 ID</label>
-     <input class="form-control" name = "tbid"/>
+     <label>점원 ID</label>
+     <input class="form-control" name = "eid"/>
    </div> 
    <div class="form-group">
-     <label>수익</label>
-     <input class="form-control" name = "trevenue"/>
+     <label>이름</label>
+     <input class="form-control" name = "ename"/>
    </div> 
     <div class="form-group">
-     <label>지출</label>
-     <input class="form-control" name = "texpenditure"/>
+     <label>연락처</label>
+     <input class="form-control" name = "etel"/>
+   </div>
+   <div class="form-group">
+     <label>시급(원)</label>
+     <input class="form-control" name = "ehw"/>
+   </div> 
+   <div class="form-group">
+     <label>지점</label>
+     <input class="form-control" name = "bid"/>
    </div> 
       <button type="submit" class="btn btn-default">등록하기</button>
    </Form>

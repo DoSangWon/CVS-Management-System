@@ -2,8 +2,8 @@
     pageEncoding="EUC-KR"%>
 <%@ page import = "java.sql.*"%> 
 <%request.setCharacterEncoding("EUC-KR");%>
-<jsp:useBean id="bean" class="project.TotalizationBean"/>
-<jsp:useBean id="mMgr" class="project.TotalizationMgr"/>
+<jsp:useBean id="bean" class="project.EmployeeBean"/>
+<jsp:useBean id="mMgr" class="project.EmployeeMgr"/>
 <jsp:setProperty name="bean" property="*"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,11 +14,13 @@
 <body>
 <%
 request.setCharacterEncoding("EUC-KR");
-System.out.println(bean.getTbid());
-System.out.println(bean.getTrevenue());
-System.out.println(bean.getTexpenditure());
-
-	boolean result = mMgr.insertTotalization(bean);
+System.out.println(bean.getEid());
+System.out.println(bean.getEname());
+System.out.println(bean.getEtel());
+System.out.println(bean.getEdate());
+System.out.println(bean.getEhw());
+System.out.println(bean.getBid());
+	boolean result = mMgr.insertEmployee(bean);
 	if(result){
 		
 	}else{
@@ -27,7 +29,7 @@ System.out.println(bean.getTexpenditure());
 %>
 
 <jsp:forward page="Template.jsp" >
-  <jsp:param name="CONTENTPAGE" value="Totalization_Insert.jsp"/>
+  <jsp:param name="CONTENTPAGE" value="Branch_Insert.jsp"/>
 </jsp:forward>
 </body>
 </html>

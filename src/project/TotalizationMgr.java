@@ -48,7 +48,7 @@ public DBConnectionMgr pool;
 	}
 	
 	
-	public Vector<TotalizationBean> getTotalization() {
+	public Vector<TotalizationBean> getTotalization(String id) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -57,8 +57,10 @@ public DBConnectionMgr pool;
 		try {
 			
 			con = pool.getConnection();
-			sql= "SELECT * FROM Totalization;";
+			System.out.println("입력받은 아이디는 : "+id);
+			sql= "select a.totalization_num,a.branch_Id,a.revenue,a.expenditure,a.totalizaion_Date from Totalization a inner JOIN branchinfo b ON a.branch_Id = b.branch_Id where (select Branch_Owner_Id from branch_user) = ?;";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
@@ -68,8 +70,6 @@ public DBConnectionMgr pool;
 				bean.setTrevenue(rs.getString(3));
 				bean.setTexpenditure(rs.getString(4));
 				bean.setTdate(rs.getString(5));
-				
-
 				vlist.add(bean);
 			}
 	
@@ -81,32 +81,8 @@ public DBConnectionMgr pool;
 		return vlist;
 	}
 	
-	public boolean deleteTotalization(String _Tnum) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = null;
-		boolean flag = false;
-System.out.println(_Tnum);
-		try {
-			/* 120 ~ 126 line : 로그인하는 부분 코딩 */
-			con = pool.getConnection();
-			sql = "delete from Totalization where totalization_num=?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, _Tnum);
-			pstmt.executeUpdate();
-			flag = rs.next();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			pool.freeConnection(con, pstmt, rs);
-		}
-		return flag;
-	}
 	
-	
-	public boolean updateTotalization(TotalizationBean bean) {
+	public boolean updateTotalization(int tnum,String tbid,int trevenue,int texpenditure) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		boolean flag = false;
@@ -123,12 +99,18 @@ System.out.println(_Tnum);
 			6. Prepared Statement을 수행 완료되면  boolean 타입으로 결과 반환									
 			**********************************************************************/
 			con = pool.getConnection();
-			System.out.println(bean.getTnum());
-			String sql = "update Totalization set revenue =?,expenditure =?,totalizaion_Date = curdate() where totalization_num=?";
+			System.out.println("1:"+tnum);
+			System.out.println("2:"+trevenue);
+			System.out.println("3:"+texpenditure);
+			System.out.println("4:"+texpenditure);
+			String sql = "update Totalization set branch_Id=?,revenue=?,expenditure=? where totalization_num=?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, bean.getTrevenue());
-			pstmt.setString(2, bean.getTexpenditure());
-			pstmt.setString(3, bean.getTnum());
+			
+			pstmt.setString(1, tbid);
+			pstmt.setInt(2, trevenue);
+			pstmt.setInt(3, texpenditure);
+			pstmt.setInt(4, tnum);
+
 			
 			int count = pstmt.executeUpdate();
 			if (count > 0)
@@ -141,4 +123,30 @@ System.out.println(_Tnum);
 		}
 		return flag;
 	}
+	
+	public boolean deleteTotalization(int tnum) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		boolean flag = false;
+System.out.println(tnum);
+		try {
+			/* 120 ~ 126 line : 로그인하는 부분 코딩 */
+			con = pool.getConnection();
+			sql = "delete from Totalization where totalization_num=?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, tnum);
+			pstmt.executeUpdate();
+			flag = rs.next();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt, rs);
+		}
+		return flag;
+	}
+	
+	
 }

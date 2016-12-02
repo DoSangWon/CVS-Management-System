@@ -28,7 +28,7 @@ for(int i = 1; i<=count; i++){
     	String opanme = request.getParameter(str);
     	String opamount = request.getParameter(str2);
     	int j = mMgr.getOpnum(opanme);
-    	boolean result = mMgr.insertOrder(onum,j,opanme,opamount,bid);
+    	boolean result = mMgr.insertOrder(onum,j,opanme,opamount,mMgr.getBid((String)session.getAttribute("id")));
     	if(result){
     		
     	}else{

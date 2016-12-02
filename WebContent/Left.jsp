@@ -34,12 +34,6 @@ body {
                                     <li>
                                         <a href="Totalization_Select_Forword.jsp">결산 조회</a>
                                     </li>
-                                    <li>
-                                        <a href="Totalization_Update_Forword.jsp">결산 변경</a>
-                                    </li>
-                                    <li>
-                                        <a href="Totalization_Delete_Forword.jsp">결산 삭제</a>
-                                    </li>
                                 </ul>
                                
                             </li>
@@ -66,9 +60,27 @@ body {
                         </ul>
                         
                       </li>  
-                   	  <li>
-                        <a  href="Employee_Forward.jsp"><i class="fa fa-desktop fa-3x"></i>점원 관리</a>
-                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-desktop fa-3x"></i>점원관리<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                          
+							<li>
+                                <a href="#">점원<span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="Employee_Insert_Forword.jsp">점원 등록</a>
+                                    </li>
+                                    <li>
+                                        <a href="Employee_Forward.jsp">점원 조회</a>
+                                    </li>
+
+                                </ul>
+                               
+                            </li>
+
+                        </ul>
+                        
+                      </li>
                     <li>
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i>지점관리<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

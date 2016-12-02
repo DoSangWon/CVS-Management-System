@@ -189,4 +189,39 @@ public class OrderMgr {
 	}
 	
 	
+	public String getBid(String id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		boolean flag = false;
+		String bid = null;
+
+		try {
+
+			con = pool.getConnection();	
+			sql = "select branch_Id from BranchInfo where branch_Owner_Name =?";
+			pstmt = con.prepareStatement(sql);
+			//System.out.println(bean.getBid());
+			pstmt.setString(1,id);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				bid = rs.getString(1);
+			}
+			
+			int count = pstmt.executeUpdate();
+			if (count > 0)
+				flag = true;
+				
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			pool.freeConnection(con, pstmt);
+		}
+		return bid;
+	}
+	
+	
+	
 }
