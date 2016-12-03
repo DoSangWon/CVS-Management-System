@@ -110,35 +110,12 @@ body {
                         <a href="#"><i class="fa fa-sitemap fa-3x"></i>수주<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                           <li>
-                                <a href="#">결산<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="Totalization_Insert_Forword.jsp">결산 등록</a>
-                                    </li>
-                                    <li>
-                                        <a href="Totalization_Select_Forword.jsp">결산 조회</a>
-                                    </li>
-                                </ul>
+                                <a href="수주_select_Forward.jsp">승인관리<span class="fa"></span></a>
                                
                             </li>
 							<li>
-                                <a href="#">발주<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="Order_Insert_Forword.jsp">물품 발주</a>
-                                    </li>
-                                    <li>
-                                        <a href="Order_Select_Forword.jsp">발주 내역</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">발주 내역 변경</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">발주 취소</a>
-                                    </li>
-
-                                </ul>
-                               
+                                <a href="#">발주내역<span class="fa"></span></a>
+                                
                             </li>
 
                         </ul>

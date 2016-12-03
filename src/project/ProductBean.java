@@ -4,6 +4,7 @@ public class ProductBean {
 	public String pnum;
 	public String pname;
 	public String pcost;
+	
 	public String getPnum() {
 		return pnum;
 	}

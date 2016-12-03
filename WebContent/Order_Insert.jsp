@@ -106,7 +106,7 @@ function submitbutton() {
 Vector<ProductBean> vlist = mMgr.getProduct();
 out.println("<select name = gu_1>");
 for (int i = 0; i < 4; i++) {
-	bean = vlist.get(i);
+	//bean = vlist.get(i);
 	String pname = bean.getPname();
 	out.println("<option value="+pname+">"+pname+"");
 	
