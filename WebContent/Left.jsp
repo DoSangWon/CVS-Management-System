@@ -20,7 +20,7 @@ body {
                     	
 					</li>
 					 <li  >
-                        <a  href="#"><i class="fa fa-edit fa-3x"></i> 공지사항 </a>
+                        <a  href="Main.jsp"><i class="fa fa-edit fa-3x"></i> 공지사항 </a>
                     </li>
                     <%
                     String id = (String)session.getAttribute("id");
